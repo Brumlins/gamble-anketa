@@ -1,2 +1,2 @@
-#Webová anketa
-#Tomáš Řehulek IT2 SŠPU
+Webová anketa
+Tomáš Řehulek IT2 SŠPU
