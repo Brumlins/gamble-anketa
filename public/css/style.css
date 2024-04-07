@@ -6,9 +6,10 @@ body {
 }
 
 
+
 h1 {
     color: white;
-    background-color: blue;
+    background-color: #4CAF50;
     font-size: 30pt;
     padding: 10px;
     margin: 0;
@@ -19,8 +20,28 @@ h1 {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
     margin: 20px auto;
+    border-bottom-left-radius: 50px;
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-top-right-radius: 50px;
+    background-color: lightgray;
+
+}
+
+.form-container-index {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    margin: 20px auto;
+    border-bottom-left-radius: 50px;
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-top-right-radius: 50px;
+    background-color: lightgray;
+
 }
 
 label {
@@ -46,7 +67,7 @@ input[type=range] {
     width: 80%;
     height: 8px;
     border-radius: 5px;
-    background: #ddd;
+    background: white;
     outline: none;
     opacity: 0.7;
     -webkit-transition: .2s;
@@ -93,4 +114,42 @@ input[type=submit]:hover {
     color: #fff;
     padding: 10px;
     border-radius: 20px;
+}
+
+/* Úprava vzhledu tabulky */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+th,
+td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+/* Přidáváme trochu paddingu na stránky pro lepší vzhled */
+.container {
+    max-width: 960px;
+    margin: auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
 }
