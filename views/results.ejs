@@ -4,9 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <title>Výsledky ankety</title>
 </head>
-<body>
+<body align="center">
     <h1>Výsledky ankety</h1>
+    <div class="form-container">
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Datum</th>
+            <th>Čas</th>
+            <th>Hodiny týdně</th>
+            <th>Oblíbená hra</th>
+            <th>Důležitost</th>
+            <th>Důvod hraní</th>
+            <th>Je závislost problém?</th>
+            <th>Jak se zbavit závislosti</th>
+        </tr>
+        <% responses.forEach(function(response) { 
+            const date = new Date(response.timestamp);
+            const dateString = `${('0' + date.getDate()).slice(-2)}.${('0' + (date.getMonth() + 1)).slice(-2)}.${date.getFullYear()}`;
+            const timeString = `${('0' + date.getHours()).slice(-2)}:${('0' + date.getMinutes()).slice(-2)}:${('0' + date.getSeconds()).slice(-2)}`;
+        %>
+            <tr>
+                <td><%= response.id %></td>
+                <td><%= dateString %></td>
+                <td><%= timeString %></td>
+                <td><%= response.answers.hours %></td>
+                <td><%= response.answers.hra %></td>
+                <td><%= response.answers.importance %></td>
+                <td><%= response.answers.roleModel %></td>
+                <td><%= response.answers.problem %></td>
+                <td><%= response.answers.zavislost %></td>
+            </tr>
+        <% }); %>
+    </table>    
+    </div>  
 </body>
+<%- include('blocks/footer'); -%>
 </html>
