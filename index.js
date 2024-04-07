@@ -39,6 +39,20 @@ app.post("/submit", (req, res) => {
   });
 });
 
+/* Routa pro zobrazení úvodní stránky */ 
+app.get('/', (req, res) => {
+  // Zde, na úvodní stránce, budeme zobrazovat formulář pro vyplnění ankety
+  fs.readFile('responses.json', 'utf8', (err, data) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).send('Nastala chyba při čtení dat.');
+    }
+    const responses = JSON.parse(data);
+    res.render('index', { title: 'Webová anketa', responses }); // Předání dat-odpovědí šabloně index.ejs
+  });
+});
+
+
 /* Routa pro zobrazení výsledků ankety */
 app.get("/results", (req, res) => {
   // Zde bude načtení dat ze souboru responses.json a jejich předání do šablony
@@ -52,10 +66,4 @@ app.get("/results", (req, res) => {
   });
 });
 
-/* Routa pro zobrazení úvodní stránky */ 
-app.get('/', (req, res) => {
-  // Zde, na úvodní stránce, budeme zobrazovat formulář pro vyplnění ankety
-  res.render('index', { title: 'Webová anketa' }); // index.ejs je soubor šablony
-  res.render('results', { title: "Výsledky ankety", responses });
-});
 
