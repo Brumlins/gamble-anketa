@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body align="center">
+
+
+
+    <%- include('blocks/header'); -%>
+<form action="/submit" method="post" class="form-container-index">
+    <div>
+        <label for="hours">Průměrný počet hodin, které týdně věnujete hazardním hrám:</label>
+        <input type="number" step="0.1" id="hours" name="hours" required>
+    </div>
+    
+    <div>
+        <label>Vyberte si Vaši oblíbenou hazardní hru:</label>
+        <select id="hra" name="hra">
+            <option value="blackjack">Blackjack</option>
+            <option value="automaty">Automaty</option>
+            <option value="ruleta">Ruleta</option>
+            <option value="poker">Poker</option>
+            <option value="jine">Jiné</option>
+            <option value="nema">Nemám</option>
+        </select>
+    </div>
+    
+    <div>
+        <label for="importance">Jakou roli hrají hazardní hry ve Vašem životě? <br>(0 = žádnou, 5 = mimořádnou)</label>
+        <input type="range" id="importance" name="importance" min="0" max="5" step="1">
+        <span id="importanceValue"></span>
+    </div>
+    
+    <div>
+        <label for="roleModel">Důvod hraní hazardních her:</label>
+        <input type="text" id="roleModel" name="roleModel">
+    </div>
+
+    <div>
+        <label for="problem">Myslíte si, že je závislost na hazardních hrách problém?</label>
+        <input type="radio" id="ano" name="problem" value="ano">Ano
+        <input type="radio" id="ne" name="problem" value="ne">Ne
+    </div>
+
+    <div id="jak" style="display: none;">
+        <label for="zavislost">Jak se zbavit závislosti?:</label>
+        <input type="text" id="zavislost" name="zavislost">
+    </div>
+    
+    
+    <button type="submit">Odeslat odpovědi</button>
+</form>
+    
+    <script>
+        document.getElementById('ano').addEventListener("click",()=>{
+            document.getElementById('jak').style.display = 'block';
+            document.getElementById('zavislost').value="";
+        })
+        document.getElementById('ne').addEventListener("click",()=>{
+            document.getElementById('jak').style.display = 'none';
+            document.getElementById('zavislost').value="";
+        })
+
+    </script>
+
+<%- include('blocks/footer'); -%>
+</body>
+</html>
